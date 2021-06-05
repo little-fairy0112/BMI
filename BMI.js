@@ -2,12 +2,12 @@
 var sendbtn = document.querySelector('.btn');
 var record = document.querySelector('.record');
 var Data = JSON.parse(localStorage.getItem('DataList')) || [];  //一進入網頁就讀取localsotage有沒有DataList內容 如果沒有就給予[]
-
+var smallbtn = document.querySelector('.smallbtn');
 
 
 //綁定事件
 sendbtn.addEventListener('click',sendData);
-record.addEventListener('click',delrecord);
+smallbtn.addEventListener('click', reset);
 updateList(Data);
 
 //送出資料時判斷BMI體態邏輯
@@ -99,14 +99,13 @@ function updateList(data){
     str = '';
     var length = data.length;
     for(i=0; i<length; i++){
-        str += '<li data-num = ' + i + ' style = "border-left: 5px solid ' + data[i].color + '"} <div class = "item">'+data[i].status+'</div> <div class="item"><span>BMI</span>'+ data[i].BMI+'</div><div class="item"><span>weight</span>'+ data[i].weight+'kg</div><div class="item"><span>height</span>'+ data[i].height+'cm</div> <div style="padding-top:8px;"><img pic-num='+ i +' src="pic/delete.jpg" alt="delete" width="30" height="30" class="delete"></div></li>'
+        str += '<li data-num = ' + i + ' style = "border-left: 5px solid ' + data[i].color + '"} <div class = "item">'+data[i].status+'</div> <div class="item"><span>BMI</span>'+ data[i].BMI+'</div><div class="item"><span>weight</span>'+ data[i].weight+'kg</div><div class="item"><span>height</span>'+ data[i].height+'cm</div> <div style="padding-top:8px;"></div></li>'
     }
     record.innerHTML = str;
 }
 
-//刪除record資料
-function delrecord(e){
-    e.preventDefault();
-    var index = e.target.dataset.pic;
-    console.log(index);
+//移除輸入資料
+function reset(){
+    document.querySelector('.height').reset();
+    document.querySelector('.weight').reset();
 }

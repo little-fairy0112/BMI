@@ -2,12 +2,10 @@
 var sendbtn = document.querySelector('.btn');
 var record = document.querySelector('.record');
 var Data = JSON.parse(localStorage.getItem('DataList')) || [];  //一進入網頁就讀取localsotage有沒有DataList內容 如果沒有就給予[]
-var smallbtn = document.querySelector('.smallbtn');
 
 
 //綁定事件
 sendbtn.addEventListener('click',sendData);
-smallbtn.addEventListener('click', reset);
 updateList(Data);
 
 //送出資料時判斷BMI體態邏輯
@@ -64,32 +62,32 @@ function sendData(e){
 
 //將判斷結果顯示在網頁上
 function tooLight(BMI,status,nowcolor){
-    var style = '<div class="smallbtn"><img src="pic/icons_loop.png" alt="loop"></div> <style> .btn{position: relative; pointer-events: none; height: 120px;width: 120px;background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ position: absolute; background-color: '+nowcolor+'; width: 30px; height: 30px; border-radius: 20px; margin-left: 90px; margin-top: 80px;} .smallbtn img{ margin-left: 8px; margin-top: 5px;} #small1{font-size: 10px;} #content1{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small1"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content1">'+status+'</div>'
+    var style = '<style> .btn{pointer-events: none; background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}#small1{font-size: 10px;} #content1{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small1"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content1">'+status+'</div>'
     sendbtn.innerHTML = style;
 }
 
 function moderate(BMI,status,nowcolor){
-    var style = '<div class="smallbtn"><img src="pic/icons_loop.png" alt="loop"></div> <style> .btn{position: relative; pointer-events: none; height: 120px;width: 120px;background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px;  padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ position: absolute; background-color: '+nowcolor+'; width: 30px; height: 30px; border-radius: 20px; margin-left: 90px; margin-top: 80px;} .smallbtn img{ margin-left: 8px; margin-top: 5px;} #small2{font-size: 10px;} #content2{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small2"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content2">'+status+'</div>'
+    var style = '<style> .btn{pointer-events: none; background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px;  padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ background-color: '+nowcolor+';} #small2{font-size: 10px;} #content2{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small2"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content2">'+status+'</div>'
     sendbtn.innerHTML = style;
 }
 
 function tooHeavy(BMI,status,nowcolor){
-    var style = '<div class="smallbtn"><img src="pic/icons_loop.png" alt="loop"></div> <style> .btn{position: relative; pointer-events: none; height: 120px;width: 120px;background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ position: absolute; background-color: '+nowcolor+'; width: 30px; height: 30px; border-radius: 20px; margin-left: 90px; margin-top: 80px;} .smallbtn img{ margin-left: 8px; margin-top: 5px;} #small3{font-size: 10px;} #content3{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small3"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content3">'+status+'</div>'
+    var style = '<style> .btn{pointer-events: none; background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ background-color: '+nowcolor+';} #small3{font-size: 10px;} #content3{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small3"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content3">'+status+'</div>'
     sendbtn.innerHTML = style;
 }
 
 function lightFat(BMI,status,nowcolor){
-    var style = '<div class="smallbtn"><img src="pic/icons_loop.png" alt="loop"></div> <style> .btn{position: relative; pointer-events: none; height: 120px;width: 120px;background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ position: absolute; background-color: '+nowcolor+'; width: 30px; height: 30px; border-radius: 20px; margin-left: 90px; margin-top: 80px;} .smallbtn img{ margin-left: 8px; margin-top: 5px;} #small4{font-size: 10px;} #content4{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small4"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content4">'+status+'</div>'
+    var style = '<style> .btn{pointer-events: none; background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ background-color: '+nowcolor+';} #small4{font-size: 10px;} #content4{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small4"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content4">'+status+'</div>'
     sendbtn.innerHTML = style;
 }
 
 function mediumFat(BMI,status,nowcolor){
-    var style = '<div class="smallbtn"><img src="pic/icons_loop.png" alt="loop"></div> <style> .btn{position: relative; pointer-events: none; height: 120px;width: 120px;background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ position: absolute; background-color: '+nowcolor+'; width: 30px; height: 30px; border-radius: 20px; margin-left: 90px; margin-top: 80px;} .smallbtn img{ margin-left: 8px; margin-top: 5px;} #small5{font-size: 10px;} #content5{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small5"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content5">'+status+'</div>'
+    var style = '<style> .btn{pointer-events: none; background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ background-color: '+nowcolor+';} #small5{font-size: 10px;} #content5{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small5"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content5">'+status+'</div>'
     sendbtn.innerHTML = style;
 }
 
 function veryFat(BMI,status,nowcolor){
-    var style = '<div class="smallbtn"><img src="pic/icons_loop.png" alt="loop"></div> <style> .btn{position: relative; pointer-events: none; height: 120px;width: 120px;background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;} .btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ position: absolute; background-color: '+nowcolor+'; width: 30px; height: 30px; border-radius: 20px; margin-left: 90px; margin-top: 80px;} .smallbtn img{ margin-left: 8px; margin-top: 5px;} #small6{font-size: 10px;} #content6{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small6"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content6">'+status+'</div>'
+    var style = '<style> .btn{pointer-events: none; background-color: #424242;border-radius: 100px;border: '+nowcolor+' 5px solid;margin-top: 92px;margin-left: 30px;}.btn p{height:30px; padding-left: 20px;color: '+nowcolor+';font-size: 30px;}.smallbtn{ background-color: '+nowcolor+'; } #small6{font-size: 10px;} #content6{color: '+nowcolor+';font-size: 32px; width:128px; height: 32px; margin-left: 150px; margin-top: -30px; } </style> <p>'+BMI+'<span id="small6"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMI</span></p> <div id="content6">'+status+'</div>'
     sendbtn.innerHTML = style;
 }
 
@@ -104,8 +102,4 @@ function updateList(data){
     record.innerHTML = str;
 }
 
-//移除輸入資料
-function reset(){
-    document.querySelector('.height').reset();
-    document.querySelector('.weight').reset();
-}
+
